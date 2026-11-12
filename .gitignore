@@ -1,0 +1,24 @@
+# runtime artifacts
+logs/
+bench/results/
+server.pid
+*.log
+
+# python
+__pycache__/
+*.py[cod]
+.venv/
+
+# local config / secrets
+.env
+.env.*
+!*.env.example
+*.sha256
+
+# editors / OS
+.DS_Store
+.idea/
+.vscode/
+
+# real test images are supplied by the user
+bench/assets/real/

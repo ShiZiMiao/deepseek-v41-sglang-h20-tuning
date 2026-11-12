@@ -1,0 +1,20 @@
+diff --git a/python/sglang/srt/models/deepseek_v4.py b/python/sglang/srt/models/deepseek_v4.py
+index da232f6..3cb5d6b 100644
+--- a/python/sglang/srt/models/deepseek_v4.py
++++ b/python/sglang/srt/models/deepseek_v4.py
+@@ -5123,9 +5123,13 @@ class DeepseekV4ForCausalLM(nn.Module):
+         )
+         self.vision = None
+         if self.takes_image_inputs and not self.language_only:
++            # [LOCAL EXPERIMENT 2026-11-11] 上游禁止 vision 与 prefill CP 同时启用。
++            # 模型层本身已有 CP 感知的图像 token 处理（模型上的 cp_image_token_id /
++            # MM_PAD_SHIFT_VALUE 重映射），此处放开 attn_cp_size 限制做可行性验证。
++            # 回滚: cd /opt/sglang-dsv41 && git checkout -- \
++            #   python/sglang/srt/models/deepseek_v4.py
+             if (
+-                get_parallel().attn_cp_size != 1
+-                or get_parallel().pp_group.world_size != 1
++                get_parallel().pp_group.world_size != 1
+                 or not (
+                     get_moe_a2a_backend().is_none()
+                     or (_is_cuda and get_moe_a2a_backend().is_megamoe())

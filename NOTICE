@@ -1,0 +1,23 @@
+DeepSeek-V4.1-Flash on 8xH20: SGLang deployment tuning
+Copyright (c) 2026 ShiZiMiao
+
+This repository contains material derived from SGLang.
+
+  SGLang
+  Copyright 2023-2026 SGLang contributors
+  https://github.com/sgl-project/sglang
+  https://github.com/antgroup/sglang
+  Licensed under the Apache License, Version 2.0.
+
+Modified file (see patches/0001-allow-vision-with-prefill-cp.patch):
+
+  python/sglang/srt/models/deepseek_v4.py
+  Source: antgroup/sglang, branch dsv41-flash-h20, commit 6e6d5d9
+  Change: allow the vision tower and prefill context parallelism (CP) to be
+          enabled at the same time, which upstream rejects via a guard.
+
+Launch scripts, benchmark suite and documentation in this repository are
+original work of the author, released under the Apache License, Version 2.0.
+
+DeepSeek and SGLang are trademarks of their respective owners. This is an
+unofficial project and is not endorsed by DeepSeek or the SGLang maintainers.
