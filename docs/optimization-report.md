@@ -5,6 +5,8 @@
 > （TP8 + EP8、engram 表驻主机内存、chunk 8192、max-running 32）
 > 对比数据：同一台 8×H20-3e、同一套压测套件、同一批 prompt（salt 固定）。
 > 每组数字都是多轮重复后的稳定值；异常轮次已剔除（见 §6）。
+> 配方来源：蚂蚁Theta《[DeepSeek-V4.1-Flash 的 SGLang H20 优化：长输入首字快 4–10 倍，开源可复现](https://zhuanlan.zhihu.com/p/2099263996943716515)》（知乎，2026-10-29）
+> 对应代码：[`antgroup/sglang`](https://github.com/antgroup/sglang) 分支 `dsv41-flash-h20`。文中「文章」均指该文。
 
 ---
 

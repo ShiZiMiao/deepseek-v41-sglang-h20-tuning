@@ -3,6 +3,7 @@
 > 部署日期：2026-11-03
 > 目标：在 8×H20-3e 141G 服务器上使用 SGLang 部署 DeepSeek-V4.1-Flash-1017，
 > 提供 OpenAI 兼容接口供 OpenCode 等 CodingAgent 接入，支持 1M 上下文，端口 30010。
+> 调优路线参考：蚂蚁Theta《[DeepSeek-V4.1-Flash 的 SGLang H20 优化](https://zhuanlan.zhihu.com/p/2099263996943716515)》（知乎，2026-10-29），下文简称「参考文章」。
 
 ---
 

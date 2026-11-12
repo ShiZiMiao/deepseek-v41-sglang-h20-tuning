@@ -136,6 +136,16 @@ python vision_check.py                           # 识图回归
   4. 参数配方与消融验证（chunk 调大无收益、graph 不可用、replay 必须开）；
   5. 可复跑的压测与识图回归体系，让「优化」可被证伪。
 
+## 参考与致谢
+
+本仓库的调优路线与对照数据来自下面这篇公开文章，我们做的是复现、补丁与工程化验证：
+
+- 蚂蚁Theta，《DeepSeek-V4.1-Flash 的 SGLang H20 优化：长输入首字快 4–10 倍，开源可复现》，知乎专栏，2026-10-29。<https://zhuanlan.zhihu.com/p/2099263996943716515>
+- 代码分支：[`antgroup/sglang`](https://github.com/antgroup/sglang) `dsv41-flash-h20`（Apache-2.0），commit `6e6d5d9`
+- 文中涉及的上游项目：[Humming](https://github.com/vllm-project/humming)（MoE W4A8 内核）、[FlashInfer](https://github.com/flashinfer-ai/flashinfer)、[FlashMLA](https://github.com/deepseek-ai/FlashMLA)、[DeepGEMM](https://github.com/deepseek-ai/DeepGEMM)
+
+文章给出的整体收益是「长输入首字快 4–10 倍」；本仓库在 8×H20-3e 上的实测为 6–9 倍，差异来自硬件与负载口径，逐场景数据见[优化报告](docs/optimization-report.md)。
+
 ## License
 
 Apache-2.0，见 [LICENSE](LICENSE) 与 [NOTICE](NOTICE)。补丁修改的是 Apache-2.0 许可的 SGLang 源码，已在补丁内标注修改点。
